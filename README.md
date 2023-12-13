@@ -2,6 +2,15 @@
 auto-generate next value for controlnumber
 
 # create sequence
+
+run this command in your mysql DB to find the highest control-number in existence.
+
+```
+SELECT MAX(ExtractValue(metadata,'//controlfield[@tag="001"]')) CURRENT_MAX_CONTROLNUMBER FROM biblio_metadata;
+```
+
+use this value to pick the start value of your sequence. the start value should be higher then the currently highest control-number. 
+
 ```
 mysql --user=koha_MYUSER --password='MYPASSWORD' koha_MYBIB
 CREATE SEQUENCE AUTO_CONTROL_NUMBER_SEQUENCE START WITH 100000;
@@ -18,11 +27,6 @@ go to `/cgi-bin/koha/admin/marc_subfields_structure.pl?op=add_form&tagfield=001&
 replace `ABC`  with your framework code.
 
 select `marc21_field_001_autocontrolnumber.pl` from the `plugin` drop down menu.
-
-# find highest control-number
-```
-SELECT MAX(ExtractValue(metadata,'//controlfield[@tag="001"]')) CURRENT_MAX_CONTROLNUMBER FROM biblio_metadata;
-```
 
 # AUTHORS
 
