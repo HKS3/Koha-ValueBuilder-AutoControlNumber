@@ -19,6 +19,11 @@ replace `ABC`  with your framework code.
 
 select `marc21_field_001_autocontrolnumber.pl` from the `plugin` drop down menu.
 
+# find highest control-number
+```
+SELECT MAX(ExtractValue(metadata,'//controlfield[@tag="001"]')) CURRENT_MAX_CONTROLNUMBER FROM biblio_metadata;
+```
+
 # AUTHORS
 
 - David Schmidt <mail@davidschmidt.at>
