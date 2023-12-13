@@ -7,7 +7,7 @@ mysql --user=koha_MYUSER --password='MYPASSWORD' koha_MYBIB
 CREATE SEQUENCE AUTO_CONTROL_NUMBER_SEQUENCE START WITH 100000;
 ```
 
-# Installation
+# installation
 ```
 cp marc21_field_001_autocontrolnumber.pl /usr/share/koha/intranet/cgi-bin/cataloguing/value_builder/
 ```
